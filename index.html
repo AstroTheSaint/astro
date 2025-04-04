@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Boy Web Universe</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- SF Pro Display Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap">
+    <!-- Particle.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="iphone-frame">
+        <div class="status-bar">
+            <div class="time">12:00</div>
+            <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+            </div>
+        </div>
+
+        <div class="app-grid">
+            <!-- Music Player App -->
+            <div class="app-icon" data-app="music">
+                <div class="icon-wrapper">
+                    <img src="assets/icons/music.svg" alt="Music">
+                </div>
+                <span class="app-name">Music</span>
+            </div>
+
+            <!-- Human Platform App -->
+            <div class="app-icon" data-app="human">
+                <div class="icon-wrapper">
+                    <img src="assets/icons/human.svg" alt="Human">
+                </div>
+                <span class="app-name">Human</span>
+            </div>
+
+            <!-- Journey Map App -->
+            <div class="app-icon" data-app="journey">
+                <div class="icon-wrapper">
+                    <img src="assets/icons/journey.svg" alt="Journey">
+                </div>
+                <span class="app-name">Journey</span>
+            </div>
+
+            <!-- Game World App -->
+            <div class="app-icon" data-app="game">
+                <div class="icon-wrapper">
+                    <img src="assets/icons/game.svg" alt="Game">
+                </div>
+                <span class="app-name">Game</span>
+            </div>
+        </div>
+
+        <!-- App Containers -->
+        <div class="app-container" id="music-app">
+            <div class="app-header">
+                <button class="back-button">←</button>
+                <h2>Music Player</h2>
+            </div>
+            <div class="music-player">
+                <div class="visualizer"></div>
+                <div class="track-info">
+                    <h3>Now Playing</h3>
+                    <p class="track-title">Loading...</p>
+                </div>
+                <div class="controls">
+                    <button class="play-pause">▶</button>
+                    <button class="next">⏭</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-container" id="human-app">
+            <!-- Human Platform content will be loaded here -->
+        </div>
+
+        <div class="app-container" id="journey-app">
+            <!-- Journey Map content will be loaded here -->
+        </div>
+
+        <div class="app-container" id="game-app">
+            <!-- Game World content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/audio.js"></script>
+    <script src="scripts/voice.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html> 
