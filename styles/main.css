@@ -1,6 +1,11 @@
 :root {
-    --cosmic-blue: #1a1a2e;
-    --astro-accent: #ff6b6b;
+    --ios-blue: #007AFF;
+    --ios-gray: #8E8E93;
+    --ios-light-gray: #C7C7CC;
+    --ios-background: #F2F2F7;
+    --astro-accent: #00ff9d;
+    --astro-dark: #1a1a2e;
+    --jailbreak-green: #4CD964;
     --wire-frame: #00ff9d;
     --holographic: rgba(255, 255, 255, 0.1);
     --iphone-width: 375px;
@@ -11,12 +16,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--cosmic-blue);
-    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--astro-dark);
+    color: #fff;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,29 +36,39 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
 }
 
 .iphone-frame {
-    width: var(--iphone-width);
-    height: var(--iphone-height);
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 40px;
     position: relative;
+    width: 375px;
+    height: 812px;
+    margin: 20px auto;
+    background: #000;
+    border-radius: 40px;
     overflow: hidden;
-    z-index: 2;
-    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
-    border: 2px solid var(--wire-frame);
+    box-shadow: 0 0 50px rgba(0, 255, 157, 0.3);
+    border: 2px solid var(--astro-accent);
 }
 
+/* Status Bar */
 .status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 44px;
-    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.time {
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .status-icons {
@@ -60,132 +76,302 @@ body {
     gap: 5px;
 }
 
+.jailbreak-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--jailbreak-green);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+/* App Grid */
 .app-grid {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 20px;
-    margin-top: 20px;
+    overflow-y: auto;
 }
 
+/* App Icons */
 .app-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s;
 }
 
-.app-icon:hover {
-    transform: scale(1.1);
+.app-icon:active {
+    transform: scale(0.8);
 }
 
-.icon-wrapper {
+.app-icon img {
     width: 60px;
     height: 60px;
-    background: var(--holographic);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 12px;
     margin-bottom: 5px;
-    border: 1px solid var(--wire-frame);
-    box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
 }
 
-.app-name {
-    font-size: 12px;
-    color: white;
+.app-icon span {
+    font-size: 10px;
     text-align: center;
+    color: #fff;
 }
 
+/* App Containers */
 .app-container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--cosmic-blue);
+    right: 0;
+    bottom: 0;
+    background: var(--ios-background);
     transform: translateX(100%);
-    transition: transform 0.3s ease;
-    padding: 20px;
+    transition: transform 0.3s ease-out;
+    z-index: 100;
 }
 
 .app-container.active {
     transform: translateX(0);
 }
 
+/* App Headers */
 .app-header {
+    height: 44px;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 .back-button {
-    background: none;
-    border: none;
-    color: var(--wire-frame);
-    font-size: 24px;
+    color: var(--ios-blue);
+    font-size: 17px;
+    padding: 10px;
     cursor: pointer;
-    margin-right: 10px;
+}
+
+.app-title {
+    flex: 1;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Cydia Styles */
+.package-list {
+    padding: 10px;
+}
+
+.package-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.package-info h4 {
+    margin: 0 0 5px 0;
+    color: #000;
+}
+
+.package-info p {
+    margin: 0;
+    color: var(--ios-gray);
+    font-size: 12px;
+}
+
+.package-version {
+    color: var(--ios-gray);
+    font-size: 12px;
+}
+
+/* WinterBoard Styles */
+.theme-list {
+    padding: 10px;
+}
+
+.theme-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-info h4 {
+    margin: 0;
+    color: #000;
+}
+
+.toggle-switch {
+    width: 51px;
+    height: 31px;
+    background: var(--ios-light-gray);
+    border-radius: 16px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.toggle-switch.active {
+    background: var(--jailbreak-green);
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.toggle-switch.active::after {
+    transform: translateX(20px);
+}
+
+/* Settings Styles */
+.settings-list {
+    padding: 10px;
+}
+
+.setting-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-info h4 {
+    margin: 0;
+    color: #000;
+}
+
+.setting-value {
+    color: var(--ios-gray);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chevron {
+    color: var(--ios-light-gray);
 }
 
 /* Music Player Styles */
 .music-player {
-    background: var(--holographic);
-    border-radius: 20px;
     padding: 20px;
-    border: 1px solid var(--wire-frame);
+    text-align: center;
 }
 
-.visualizer {
+.album-art {
+    width: 200px;
     height: 200px;
-    background: rgba(0, 0, 0, 0.3);
+    margin: 0 auto 20px;
     border-radius: 10px;
+    overflow: hidden;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-info {
     margin-bottom: 20px;
 }
 
-.track-info {
-    margin-bottom: 20px;
+.song-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #000;
+}
+
+.artist {
+    font-size: 16px;
+    color: var(--ios-gray);
+    margin: 0;
 }
 
 .controls {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 20px;
 }
 
-.controls button {
-    background: var(--astro-accent);
+.control-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--ios-blue);
     border: none;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
+    color: #fff;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.controls button:hover {
-    transform: scale(1.1);
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--ios-light-gray);
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.progress {
+    width: 30%;
+    height: 100%;
+    background: var(--ios-blue);
+    border-radius: 2px;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--ios-gray);
 }
 
 /* Animations */
-@keyframes glow {
-    0% { box-shadow: 0 0 5px var(--wire-frame); }
-    50% { box-shadow: 0 0 20px var(--wire-frame); }
-    100% { box-shadow: 0 0 5px var(--wire-frame); }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.iphone-frame {
-    animation: glow 2s infinite;
+.jailbreak-indicator {
+    animation: pulse 2s infinite;
 }
 
 /* Responsive Design */
-@media (max-width: 400px) {
+@media (max-width: 375px) {
     .iphone-frame {
         width: 100%;
         height: 100vh;
+        margin: 0;
         border-radius: 0;
     }
 } 

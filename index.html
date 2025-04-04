@@ -14,78 +14,106 @@
     <div id="particles-js"></div>
     
     <div class="iphone-frame">
+        <!-- Classic iOS Status Bar -->
         <div class="status-bar">
-            <div class="time">12:00</div>
+            <div class="time">9:41</div>
             <div class="status-icons">
-                <span class="signal"></span>
-                <span class="wifi"></span>
-                <span class="battery"></span>
+                <span class="jailbreak-indicator"></span>
+                <span class="signal">📶</span>
+                <span class="wifi">📡</span>
+                <span class="battery">🔋</span>
             </div>
         </div>
 
+        <!-- SpringBoard Grid -->
         <div class="app-grid">
-            <!-- Music Player App -->
+            <div class="app-icon" data-app="cydia">
+                <img src="assets/icons/cydia.svg" alt="Cydia">
+                <span>Cydia</span>
+            </div>
             <div class="app-icon" data-app="music">
-                <div class="icon-wrapper">
-                    <img src="assets/icons/music.svg" alt="Music">
-                </div>
-                <span class="app-name">Music</span>
+                <img src="assets/icons/music.svg" alt="Music">
+                <span>Music</span>
             </div>
-
-            <!-- Human Platform App -->
             <div class="app-icon" data-app="human">
-                <div class="icon-wrapper">
-                    <img src="assets/icons/human.svg" alt="Human">
-                </div>
-                <span class="app-name">Human</span>
+                <img src="assets/icons/human.svg" alt="Human">
+                <span>Human</span>
             </div>
-
-            <!-- Journey Map App -->
             <div class="app-icon" data-app="journey">
-                <div class="icon-wrapper">
-                    <img src="assets/icons/journey.svg" alt="Journey">
-                </div>
-                <span class="app-name">Journey</span>
+                <img src="assets/icons/journey.svg" alt="Journey">
+                <span>Journey</span>
             </div>
-
-            <!-- Game World App -->
             <div class="app-icon" data-app="game">
-                <div class="icon-wrapper">
-                    <img src="assets/icons/game.svg" alt="Game">
-                </div>
-                <span class="app-name">Game</span>
+                <img src="assets/icons/game.svg" alt="Game">
+                <span>Game</span>
+            </div>
+            <div class="app-icon" data-app="winterboard">
+                <img src="assets/icons/winterboard.svg" alt="WinterBoard">
+                <span>WinterBoard</span>
+            </div>
+            <div class="app-icon" data-app="settings">
+                <img src="assets/icons/settings.svg" alt="Settings">
+                <span>Settings</span>
             </div>
         </div>
 
         <!-- App Containers -->
-        <div class="app-container" id="music-app">
+        <div id="cydia-app" class="app-container">
             <div class="app-header">
-                <button class="back-button">←</button>
-                <h2>Music Player</h2>
+                <div class="back-button">Back</div>
+                <div class="app-title">Cydia</div>
+            </div>
+            <div class="package-list">
+                <!-- Packages will be dynamically added here -->
+            </div>
+        </div>
+
+        <div id="music-app" class="app-container">
+            <div class="app-header">
+                <div class="back-button">Back</div>
+                <div class="app-title">Music</div>
             </div>
             <div class="music-player">
-                <div class="visualizer"></div>
-                <div class="track-info">
-                    <h3>Now Playing</h3>
-                    <p class="track-title">Loading...</p>
+                <div class="album-art">
+                    <img src="assets/images/album-cover.jpg" alt="Album Cover">
+                </div>
+                <div class="song-info">
+                    <h3 class="song-title">Astro Boy Theme</h3>
+                    <p class="artist">Astro The Saint</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="time-info">
+                    <span>1:23</span>
+                    <span>3:45</span>
                 </div>
                 <div class="controls">
-                    <button class="play-pause">▶</button>
-                    <button class="next">⏭</button>
+                    <button class="control-button">⏮</button>
+                    <button class="control-button">⏯</button>
+                    <button class="control-button">⏭</button>
                 </div>
             </div>
         </div>
 
-        <div class="app-container" id="human-app">
-            <!-- Human Platform content will be loaded here -->
+        <div id="winterboard-app" class="app-container">
+            <div class="app-header">
+                <div class="back-button">Back</div>
+                <div class="app-title">WinterBoard</div>
+            </div>
+            <div class="theme-list">
+                <!-- Themes will be dynamically added here -->
+            </div>
         </div>
 
-        <div class="app-container" id="journey-app">
-            <!-- Journey Map content will be loaded here -->
-        </div>
-
-        <div class="app-container" id="game-app">
-            <!-- Game World content will be loaded here -->
+        <div id="settings-app" class="app-container">
+            <div class="app-header">
+                <div class="back-button">Back</div>
+                <div class="app-title">Settings</div>
+            </div>
+            <div class="settings-list">
+                <!-- Settings will be dynamically added here -->
+            </div>
         </div>
     </div>
 
