@@ -1,0 +1,22 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background rounded square -->
+  <rect width="60" height="60" rx="12" fill="url(#gradient)"/>
+  
+  <!-- Link icon (chain) -->
+  <path d="M25 35L20 40C17.7909 42.2091 14.2091 42.2091 12 40C9.79086 37.7909 9.79086 34.2091 12 32L17 27" 
+        stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 25L40 20C42.2091 17.7909 45.7909 17.7909 48 20C50.2091 22.2091 50.2091 25.7909 48 28L43 33" 
+        stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="26" y1="34" x2="34" y2="26" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Drop/download arrow -->
+  <path d="M30 18V30M30 30L26 26M30 30L34 26" 
+        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+</svg>
