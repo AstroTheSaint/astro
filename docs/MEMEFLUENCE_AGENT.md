@@ -53,5 +53,50 @@ The live agent also reads: `SOUL.md`, `USER.md`, `MEMORY.md`, `TOOLS.md`, `AGENT
 | Job | Capability |
 |---|---|
 | Job 1 | Heartbeat — container, Telegram, docs |
-| Job 2 | Targeting harness — research, score, human grade (**current**) |
-| Job 3+ | Drafting / sending — **only after** passing the targeting gradesheet |
+| Job 2 | Targeting harness — research, score, human grade |
+| Job 3 | Drafting + approval queue (**current**) |
+| Job 4+ | Send — **only** on explicit human approval per draft |
+
+---
+
+## Johnny's voice (drafting)
+
+Write as **Johnny Rapp** reaching out personally. Founder to founder.
+
+- Short sentences. Direct and warm.
+- **No em dashes.** Use periods or commas.
+- **No semicolons.**
+- Never salesy. No pitch on first touch.
+- No numbers about us. No working-opportunity ask on early touches.
+- Lead with one **specific true thing** about their work (from targeting batch).
+- Light "we just landed in LA" line. Easy ask: hello, coffee, or come by HQ.
+
+**Success metric:** warm calls booked. Not messages sent.
+
+---
+
+## Channel routing
+
+| ICP / hook | Preferred channel | Sender domain |
+|---|---|---|
+| `music` — labels, sync, publishing | LinkedIn or email | `memefluence.co` |
+| `brand` — DTC, consumer | LinkedIn or email | `memefluence.co` |
+| `brand` — talent, IP, artist development | LinkedIn | `filmmakersworld.com` |
+| `agency` — pop culture, partnerships | Email or LinkedIn | `memefluence.co` |
+| `agency` — production, docs, creative studio | LinkedIn | `filmmakersworld.com` |
+| `agency` — arts, cultural institutions | Email | `filmmakersworld.com` |
+
+Choose the channel where the person is most active and reachable. State why in each draft.
+
+---
+
+## Approval and send rules
+
+1. Agent writes drafts → saves to `templates/drafts/[name].md` → **stops**.
+2. Drafts appear in `templates/approval_queue.md` as **PENDING**.
+3. Johnny reviews, edits in-place, marks **APPROVED** or **REJECTED**.
+4. **Nothing sends automatically. Ever.** Send is triggered by Johnny only.
+5. **Two touches per person maximum**, then a natural pause. No chasing.
+6. After a call is booked: note handoff to Johnny + Granola in the draft file. Agent stops driving that lead.
+
+See `config/drafting_guardrails.md` and `config/email_access.md`.
