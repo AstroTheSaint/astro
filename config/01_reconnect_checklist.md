@@ -166,3 +166,29 @@ After container is up and Telegram works:
 - [ ] Agent replies on Telegram
 - [ ] Agent confirms operating doc
 - [ ] No secrets in repo
+
+---
+
+## In-container verification (when host `docker` is unavailable)
+
+If your terminal only drops you into `openclaw-wtm2-openclaw-1` (hostname = container ID), use these instead:
+
+```bash
+# Processes (expect: node server.mjs, openclaw, openclaw-gateway)
+ps aux | grep -iE "openclaw|node" | grep -v grep
+
+# Operating docs
+ls -la /data/.openclaw/workspace/MEMEFLUENCE.md
+
+# Model (redact keys before sharing)
+grep -i "model\|minimax\|provider" /data/.openclaw/openclaw.json | grep -v -i "key\|token\|secret"
+
+# Recent activity
+ls -la /data/.openclaw/update-check.json
+```
+
+**Confirmed on VPS (Jul 10, 2026):**
+- `openclaw-gateway` running since Apr 23
+- Model: `minimax/MiniMax-M2.5`
+- Operating doc: `/data/.openclaw/workspace/MEMEFLUENCE.md`
+- `update-check.json` touched today
