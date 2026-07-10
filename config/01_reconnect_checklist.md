@@ -192,3 +192,5 @@ ls -la /data/.openclaw/update-check.json
 - Model: `minimax/MiniMax-M2.5`
 - Operating doc: `/data/.openclaw/workspace/MEMEFLUENCE.md`
 - `update-check.json` touched today
+- Telegram channel: **responding** (Jul 10 ping test)
+- Model API: **billing error** — MiniMax key out of credits (fix before Job 2)
