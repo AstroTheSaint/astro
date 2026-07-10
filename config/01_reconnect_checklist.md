@@ -119,8 +119,12 @@ ls -la /data/.openclaw/
 
 Look for:
 - [ ] Agent config / workspace files
-- [ ] `MEMEFLUENCE_AGENT.md` or equivalent operating doc
+- [ ] Operating docs under `/data/.openclaw/workspace/`:
+  - `MEMEFLUENCE.md` — primary operating brain (confirmed on VPS)
+  - `AGENTS.md`, `OPERATING_MANUAL.md`, `HEARTBEAT.md`
 - [ ] Telegram + model settings (redact before sharing)
+
+> **Note:** `docs/MEMEFLUENCE_AGENT.md` in the GitHub repo may not exist. The live operating doc on this VPS is `/data/.openclaw/workspace/MEMEFLUENCE.md`.
 
 ---
 
@@ -129,10 +133,10 @@ Look for:
 After container is up and Telegram works:
 
 1. Send: **`ping`**
-2. Send: **`What is your operating document? Can you read docs/MEMEFLUENCE_AGENT.md?`**
+2. Send: **`What is your operating document? Can you read MEMEFLUENCE.md?`**
 
 - [ ] Agent responds to `ping`
-- [ ] Agent confirms it can read the operating doc (or names the path it actually uses)
+- [ ] Agent confirms it can read `MEMEFLUENCE.md` (or names the path it actually uses)
 
 ---
 
