@@ -9,7 +9,8 @@ VPS_HOST="YOUR_VPS_HOST"          # e.g. 123.456.789.0 or vps123.hostinger.com
 VPS_USER="YOUR_SSH_USER"          # e.g. root or ubuntu
 SSH_KEY_PATH="YOUR_SSH_KEY_PATH"  # e.g. ~/.ssh/id_ed25519_hostinger
 OPENCLAW_DIR="/docker/openclaw-wtm2"
-CONTAINER_NAME_PATTERN="openclaw" # adjust if your container name differs
+CONTAINER_NAME="openclaw-wtm2-openclaw-1" # full name from: docker ps
+CONTAINER_NAME_PATTERN="openclaw"          # fallback filter if name differs
 # -----------------------------------------------------------------------
 
 if [[ "$VPS_HOST" == "YOUR_VPS_HOST" ]] \
@@ -46,8 +47,13 @@ echo "--- docker ps (all running containers) ---"
 docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'
 
 echo ""
-echo "--- openclaw container match (name contains: ${CONTAINER_NAME_PATTERN}) ---"
-MATCH=\$(docker ps --filter "name=${CONTAINER_NAME_PATTERN}" --format '{{.Names}}' | head -n1 || true)
+echo "--- openclaw container (${CONTAINER_NAME}) ---"
+MATCH=""
+if docker ps --format '{{.Names}}' | grep -qx "${CONTAINER_NAME}"; then
+  MATCH="${CONTAINER_NAME}"
+else
+  MATCH=\$(docker ps --filter "name=${CONTAINER_NAME_PATTERN}" --format '{{.Names}}' | head -n1 || true)
+fi
 if [[ -z "\$MATCH" ]]; then
   echo "WARNING: No running container matched '${CONTAINER_NAME_PATTERN}'."
   echo "         Check stopped containers:"
