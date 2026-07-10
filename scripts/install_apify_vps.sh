@@ -34,6 +34,23 @@ for f in "${FILES[@]}"; do
 done
 
 chmod +x "${WORKSPACE}/scripts/apify_scrape.mjs" 2>/dev/null || true
+chmod +x "${WORKSPACE}/scripts/openclaw_scrape.sh" 2>/dev/null || true
+
+# Append scrape section to TOOLS.md
+bash "${WORKSPACE}/scripts/install_telegram_scrape.sh" 2>/dev/null || {
+  if [[ -f "${WORKSPACE}/scripts/install_telegram_scrape.sh" ]]; then
+    bash "${WORKSPACE}/scripts/install_telegram_scrape.sh"
+  else
+    TOOLS="${WORKSPACE}/TOOLS.md"
+    MARKER="## scrape — Apify sourcing"
+    if ! grep -qF "$MARKER" "$TOOLS" 2>/dev/null; then
+      echo "" >> "$TOOLS"
+      echo "---" >> "$TOOLS"
+      cat "${WORKSPACE}/workspace_addons/TOOLS_SCRAPE.md" >> "$TOOLS"
+      echo "==> Appended scrape tool to TOOLS.md"
+    fi
+  fi
+}
 
 echo ""
 echo "==> Installed. Next steps:"
