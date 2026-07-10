@@ -1,0 +1,78 @@
+{
+  "linkedin": {
+    "id": "harvestapi/linkedin-profile-search",
+    "label": "LinkedIn Profile Search",
+    "source": "linkedin",
+    "typical_cost_per_item_usd": 0.01,
+    "typical_compute_usd": 0.05,
+    "max_items_default": 25,
+    "max_items_hard_cap": 50,
+    "input_template": {
+      "profileScraperMode": "Full",
+      "searchQuery": "{{query}}",
+      "currentJobTitles": ["Founder", "Co-Founder", "CEO", "Chief Executive Officer"],
+      "locations": ["{{location}}"],
+      "maxItems": "{{maxItems}}",
+      "startPage": 1
+    },
+    "output_fields": [
+      "fullName",
+      "firstName",
+      "lastName",
+      "headline",
+      "linkedinUrl",
+      "profileUrl",
+      "location",
+      "locationName",
+      "currentPosition",
+      "experience",
+      "about",
+      "summary"
+    ],
+    "normalize_map": {
+      "name": ["fullName", "{{firstName}} {{lastName}}"],
+      "role": ["currentPosition.0.title", "headline"],
+      "company": ["currentPosition.0.companyName"],
+      "person_location": ["location", "locationName"],
+      "linkedin_url": ["linkedinUrl", "profileUrl", "url"],
+      "company_linkedin_url": ["currentPosition.0.companyLinkedinUrl"],
+      "headline": ["headline"],
+      "bio_snippet": ["about", "summary"]
+    }
+  },
+  "instagram": {
+    "id": "apify/instagram-profile-scraper",
+    "label": "Instagram Profile Scraper",
+    "source": "instagram",
+    "typical_cost_per_item_usd": 0.005,
+    "typical_compute_usd": 0.03,
+    "max_items_default": 25,
+    "max_items_hard_cap": 50,
+    "input_template": {
+      "usernames": "{{usernames}}",
+      "resultsLimit": "{{maxItems}}"
+    },
+    "output_fields": [
+      "username",
+      "fullName",
+      "biography",
+      "followersCount",
+      "followsCount",
+      "postsCount",
+      "verified",
+      "externalUrl",
+      "url",
+      "inputUrl"
+    ],
+    "normalize_map": {
+      "name": ["fullName", "username"],
+      "role": ["biography"],
+      "company": [],
+      "person_location": [],
+      "instagram_url": ["url", "inputUrl", "https://www.instagram.com/{{username}}"],
+      "profile_url": ["url", "inputUrl"],
+      "bio_snippet": ["biography"],
+      "followers": ["followersCount"]
+    }
+  }
+}

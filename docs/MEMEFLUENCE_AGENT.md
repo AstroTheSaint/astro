@@ -54,8 +54,9 @@ The live agent also reads: `SOUL.md`, `USER.md`, `MEMORY.md`, `TOOLS.md`, `AGENT
 |---|---|
 | Job 1 | Heartbeat — container, Telegram, docs |
 | Job 2 | Targeting harness — research, score, human grade |
-| Job 3 | Drafting + approval queue (**current**) |
-| Job 4+ | Send — **only** on explicit human approval per draft |
+| Job 3 | Drafting + approval queue |
+| Job 4 | Apify scrape → raw + normalized on disk |
+| Job 5+ | Send — **only** on explicit human approval per draft |
 
 ---
 
