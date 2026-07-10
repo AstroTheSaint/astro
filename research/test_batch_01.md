@@ -379,8 +379,8 @@ Karuna Labs provides **VR-based chronic pain neurorehab programs** delivered in 
 
 ---
 
-## Stop here
+## Grading complete
 
-Batch and reasoning complete. **Do not proceed to drafting or sending.**
+**Result:** PASS — 10/10 correct, zero false positives on C1 and C3 (graded by Johnny Rapp, July 10, 2026).
 
-Next step: grade this batch in `research/test_batch_01_gradesheet.md` and confirm pass bar before Job 3.
+Agent is cleared for **Job 3** (drafting) when instructed. Still no sending until explicitly enabled.

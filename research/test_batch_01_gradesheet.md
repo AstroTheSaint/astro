@@ -2,7 +2,7 @@
 
 **Grader:** Johnny Rapp  
 **Batch:** `research/test_batch_01.md`  
-**Date graded:** _______________
+**Date graded:** July 10, 2026
 
 ---
 
@@ -32,16 +32,16 @@ If the agent fails either false-positive rule, **stop** — rework targeting bef
 
 | # | Name | Company | Agent pick | Your verdict | Agent correct? | False positive? | False negative? | Notes |
 |---|---|---|---|:---:|:---:|:---:|:---:|---|
-| 1 | Jonathan Strauss | Create Music Group | YES | | | | | |
-| 2 | Grace Hong | Parasol Music | YES | | | | | |
-| 3 | Nick Crompton | SIX3SIX | YES | | | | | |
-| 4 | Karam Gill | MGX Creative | YES | | | | | |
-| 5 | Stacy Jones | Hollywood Branded | YES | | | | | |
-| 6 | Allison Conrad | Arey | YES | | | | | |
-| 7 | Adrienne Andisheh | Sounding Point | YES | | | | | |
-| 8 | Kacy Boone | Clockwise | NO | | | | | |
-| 9 | Joshua Nzewi | Eze | NO | | | | | |
-| 10 | Lincoln Nguyen | Karuna Labs | NO | | | | | |
+| 1 | Jonathan Strauss | Create Music Group | YES | PASS | Y | N | N | |
+| 2 | Grace Hong | Parasol Music | YES | PASS | Y | N | N | |
+| 3 | Nick Crompton | SIX3SIX | YES | PASS | Y | N | N | |
+| 4 | Karam Gill | MGX Creative | YES | PASS | Y | N | N | |
+| 5 | Stacy Jones | Hollywood Branded | YES | PASS | Y | N | N | |
+| 6 | Allison Conrad | Arey | YES | PASS | Y | N | N | |
+| 7 | Adrienne Andisheh | Sounding Point | YES | PASS | Y | N | N | |
+| 8 | Kacy Boone | Clockwise | NO | FAIL | Y | N | N | Correct reject — not founder, SF HQ |
+| 9 | Joshua Nzewi | Eze | NO | FAIL | Y | N | N | Correct reject — SF HQ |
+| 10 | Lincoln Nguyen | Karuna Labs | NO | FAIL | Y | N | N | Correct reject — HQ Ione, not LA |
 
 ---
 
@@ -49,19 +49,19 @@ If the agent fails either false-positive rule, **stop** — rework targeting bef
 
 | Metric | Value |
 |---|---|
-| Correct / 10 | ___ / 10 |
-| False positives on C1 (founder) | ___ |
-| False positives on C3 (LA business) | ___ |
-| False negatives (agent rejected a good pick) | ___ |
+| Correct / 10 | **10 / 10** |
+| False positives on C1 (founder) | **0** |
+| False positives on C3 (LA business) | **0** |
+| False negatives (agent rejected a good pick) | **0** |
 
 ---
 
 ## Pass / fail
 
-- [ ] **PASS** — ≥ 9/10 correct, zero false positives on C1 and C3 → agent may proceed to Job 3
+- [x] **PASS** — ≥ 9/10 correct, zero false positives on C1 and C3 → agent may proceed to Job 3
 - [ ] **FAIL** — Rework targeting harness and run a new batch
 
-**Grader signature / date:** _______________
+**Grader:** Johnny Rapp — **July 10, 2026** — "I pass them all."
 
 ---
 
