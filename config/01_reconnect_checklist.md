@@ -162,10 +162,12 @@ After container is up and Telegram works:
 
 ## Job 1 done when
 
-- [ ] Container running
-- [ ] Agent replies on Telegram
-- [ ] Agent confirms operating doc
-- [ ] No secrets in repo
+- [x] Container running
+- [x] Agent replies on Telegram
+- [x] Agent confirms operating doc (`MEMEFLUENCE.md` + workspace stack)
+- [x] No secrets in repo
+
+**Completed Jul 10, 2026** — MiniMax credits restored; agent confirmed operating docs on Telegram.
 
 ---
 
